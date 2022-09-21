@@ -179,7 +179,6 @@ export default {
                     this.accountDataOne = this.hesapbilgisi[i];
                 }
             }
-              console.log(this.accountDataOne.miktar)
         }
     }
 }

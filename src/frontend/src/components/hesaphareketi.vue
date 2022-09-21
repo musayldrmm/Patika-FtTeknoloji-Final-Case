@@ -14,7 +14,7 @@ table thead {
   
 <script>
 import axios from 'axios';
-
+import moment from 'moment';
 export default {
   data() {
     return {
@@ -26,8 +26,11 @@ export default {
       headers: {
         'Authorization': this.$store.getters.getAccesToken
       }
-    }).then(response =>
-      this.items = response.data)
+    }).then(response =>{
+      for(let i = 0; i < response.data.length; i++) {
+      response.data[i].islemtarihi=moment(response.data[i].islemtarihi).format("YYYY-MM-DD");
+      }
+      this.items = response.data})
   }
 }
 </script>
